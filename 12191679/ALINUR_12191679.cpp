@@ -33,10 +33,10 @@ int main()
     string isiPaket[10];
     int hargaPaket[10], subTotal[10];
     char jawab;
-    int totalBayar;
+    int totalHarga, ppn, totalBayar, uangBayar, kembalian;
 
     pesan:
-    totalBayar = 0;
+    totalHarga = 0;
     system("cls");
     kop();
     cout << endl;
@@ -88,11 +88,22 @@ int main()
         cout << setiosflags(ios::left) << setw(4) << jumBeli[i];
         subTotal[i] = jumBeli[i]*hargaPaket[i];
         cout << setiosflags(ios::left) << setw(0) << subTotal[i] << endl;
-        totalBayar = totalBayar + subTotal[i];
+        totalHarga = totalHarga+subTotal[i];
     }
     line();
     cout << setiosflags(ios::left) << setw(24) << " ";
+    cout << setiosflags(ios::left) << setw(0) << "Total Harga Rp." << totalHarga << endl;
+    ppn = totalHarga*0.1;
+    cout << setiosflags(ios::left) << setw(24) << " ";
+    cout << setiosflags(ios::left) << setw(0) << "PPn 10%     Rp." << ppn << endl;
+    totalBayar = ppn+totalHarga;
+    cout << setiosflags(ios::left) << setw(24) << " ";
     cout << setiosflags(ios::left) << setw(0) << "Total Bayar Rp." << totalBayar << endl;
+    cout << setiosflags(ios::left) << setw(24) << " ";
+    cout << setiosflags(ios::left) << setw(0) << "Uang Bayar  Rp."; cin >> uangBayar;
+    kembalian = uangBayar-totalBayar;
+    cout << setiosflags(ios::left) << setw(24) << " ";
+    cout << setiosflags(ios::left) << setw(0) << "Kembalian   Rp." << kembalian << endl;
 
     cout << endl;
     cout << "Pesan Kembali ? [Y/n] : "; cin >> jawab;
